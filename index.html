@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Yian's Blog</title><meta name="author" content="一安"><meta name="copyright" content="一安"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="描述">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yian&#39;s Blog">
+<meta property="og:url" content="https://yian4243.github.io/index.html">
+<meta property="og:site_name" content="Yian&#39;s Blog">
+<meta property="og:description" content="描述">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="一安">
+<meta property="article:tag" content="关键词">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yian4243.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Yian\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-11-10 10:16:45'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yian's Blog"><span class="site-name">Yian's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Yian's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/02/twcms/" title="twcms">twcms</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-02T09:44:38.000Z" title="发表于 2024-11-02 17:44:38">2024-11-02</time></span></div><div class="content">搭建cms打开phpstudy，新建一个网站，如图：将压缩包内容解压到www目录下的twcms.com的该网站目录下，如图：打开网站，跳转到安装向导页面，如图：根据网站配置要求，修改php环境，如图：根据安装向导配置环境后，创建成功如图所示：
+漏洞挖掘信息搜集通过fofa查询莱特州立大学的子域名，如图通过超级ping查询其CDN的ip，如图该网站只有一个ip通过旁站查询网站查询部署在该服务器上的其他域名，如图但这些ip都无法访问通过SearchMap进行ip反查域名使用nmap扫描34.200.30.249，查询结果如图通过whois查询，得到如图信息使用shodan查询，得到如图信息发现启用了80和443端口，分别用于http和https服务，可以将http作为一个切入点通过Wappalyzer插件分析网站使用的技术，如图发现该站使用了Drupal的CMS，搜索该CMS的漏洞通过搜索发现Drupal最新的漏洞为CVE-2024-3818，是一个影响 Drupal 9和 Drupal 10版本的远程代码执行（RCE）漏洞，该漏洞与文件上传功能中的安全缺陷有关。攻击者可以通过特制的恶意文 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/23/TASK-2-upload-labs/" title="TASK 2-upload-labs">TASK 2-upload-labs</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-23T06:50:34.000Z" title="发表于 2024-10-23 14:50:34">2024-10-23</time></span></div><div class="content">这一部分不知道啥时候不小心被删了，今天做简历复盘时才发现，补上一个当时跟学的视频链接文件上传漏洞靶场（upload-labs）通关+知识点教程(pass1-21)最新版（超详细）
+Pass1 前端js绕过由于本关只在前端检查文件后缀是否合法，所以我们只需要直接禁用JavaScript即可。
+Pass2 content-type绕过本关在post请求包中会有content-type标识文件类型，在bp中修改为image&#x2F;jpeg即可
+Pass3 特殊后缀绕过（php3 php5）黑名单里面如果没有加入这类后缀，通过这类后缀依然能够以php方式执行文件
+Pass4</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/10/TASK-3-vulhub/" title="TASK 3 vulhub">TASK 3 vulhub</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-10T10:59:48.000Z" title="发表于 2024-10-10 18:59:48">2024-10-10</time></span></div><div class="content">CVE-2019-9053在CMS Made Simple &lt;&#x3D; 2.2.9的版本中存在一个基于时间的SQL盲注漏洞。漏洞存在于 moduleinterface.php 文件中，具体涉及以下GET参数：mact: 指示要执行的管理操作，例如 “News,m1_,default,0”m1_idlist: 用于指定特定记录ID的列表在 moduleinterface.php 中，mact 和 m1_idlist 参数被直接用于构建SQL查询，而未经过充分的输入验证和转义处理。类似于以下形式：
+123456$mact = $_GET[&#x27;mact&#x27;];$m1_idlist = $_GET[&#x27;m1_idlist&#x27;];// 构建SQL查询$query = &quot;SELECT * FROM some_table WHERE mact = &#x27;$mact&#x27; AND id IN ($m1_idlist)&quot;;$result = mysql_query($query);
+攻击者可以通过 m1_idlist 参数注入额外 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/04/TASK-2-php-SER-libs-main/" title="TASK 2-php-SER-libs-main">TASK 2-php-SER-libs-main</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-04T06:29:00.000Z" title="发表于 2024-10-04 14:29:00">2024-10-04</time></span></div><div class="content">serialize() 函数用于序列化对象或数组，并返回一个字符串。serialize() 函数序列化对象后，可以很方便的将它传递给其他需要它的地方，且其类型和结构不会改变。如果想要将已序列化的字符串变回 PHP 的值，可使用 unserialize()。实例:
+12345&lt;?php$sites = array(&#x27;Google&#x27;, &#x27;Runoob&#x27;, &#x27;Facebook&#x27;);$serialized_data = serialize($sites);echo  $serialized_data . PHP_EOL;?&gt;
+输出:a:3:&#123;i:0;s:6:&quot;Google&quot;;i:1;s:6:&quot;Runoob&quot;;i:2;s:8:&quot;Facebook&quot;;&#125;常见魔术方法的作用和触发条件：
+
+
+
+魔术方法
+作用
+
+
+
+__construct()
+创建对象时触发
+
+
+__destruct()
+对象被销毁时触发
+
+
+__sleep()
+在对象被序列化的过程中自 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/24/TASK-1-SQL/" title="TASK 1-SQL">TASK 1-SQL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-24T02:19:06.000Z" title="发表于 2024-09-24 10:19:06">2024-09-24</time></span></div><div class="content">学习SQL注入12345SQL查询语句查库:select schema_name from information_schema.schemata;查表:select table_name from information_schema.tables where table_schema = &#x27;数据库名&#x27;;查字段名:select column_name from information_schema.columns where table_name=&#x27;表名&#x27;;查数据:select * from security.users;
+limit语句:limiti参数有两个，用逗号隔开，前一个参数表示索引起始，后一个参数表示数据条数order by语句:按照参数给出的列进行排序 select * from users order by 1;SQL注释: --+ --  #union联合语句:接着前一段语句进行操作，对前一段语句进行修改，使得前一段语句不进行输出，即可将union后所需数据输出group_concat():合并一组相关数据并返回concat_ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/18/Learning-3/" title="TASK 1-PHP">TASK 1-PHP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-18T11:30:01.000Z" title="发表于 2024-09-18 19:30:01">2024-09-18</time></span></div><div class="content">学习PHPPHP可在不同的平台上运行，与目前几乎所有的正在被使用的服务器相兼容，他还提供了广泛的数据库支持。在学习web的道路上PHP是必不可少的工具。PHP文件可包含文本、HTML、JavaScript文件和PHP代码。PHP代码在服务器上执行，结果以纯HTML的形式返回给浏览器。
+PHP语法PHP脚本以&lt;?php开始，以?&gt;结束；//用于单行注释，/*和*/用于段落注释。
+PHP变量PHP中变量以$开始，变量名只能以字母或下划线开始，变量名区分大小写。PHP中没有声明变量的命令，变量在第一次赋值时被创建。PHP有四种不同的作用域：local、global、static、parameter。与其他语言有所不同的是，函数内无法调用函数外部的全局变量，若要在函数内部调用全局变量，需要使用global关键字，如global $x,$y;PHP 将所有全局变量存储在一个名为 $GLOBALS[index] 的数组中,index为变量名称，这个数组可以在函数内部访问，即可在函数内部通过$GLOBALS[&#39;y&#39;]=$GLOBALS[&#39;x&#39;]+$GLOB ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/17/blog-1/" title="TASK 0">TASK 0</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-17T08:32:15.000Z" title="发表于 2024-09-17 16:32:15">2024-09-17</time></span></div><div class="content">一、HTML 基础1.1 HTML 概述HTML（HyperText Markup Language）是一种标准标记语言，用于创建和设计网页内容。HTML 文档由标签（tags）组成，这些标签定义了文档的结构和内容。
+1.2 HTML 基本结构：声明文档类型为 HTML5。&lt;html&gt;：HTML 文档的根元素。&lt;head&gt;：包含文档的元数据，如标题和链接到外部资源。&lt;body&gt;：包含网页的可见内容，如文本、图片和链接。
+1.3 常用 HTML 标签文本标签：标题：&lt;h1&gt; 至 &lt;h6&gt;，定义不同级别的标题。段落：&lt;p&gt;，定义段落。链接：&lt;a href=&quot;URL&quot;&gt;，定义超链接。强调：&lt;strong&gt;（加粗）和 &lt;em&gt;（斜体）。
+列表：无序列表：&lt;ul&gt; 和 &lt;li&gt;。有序列表：&lt;ol&gt; 和 &lt;li&gt;。
+表格：表格：&lt;table&gt;、&lt;tr&gt;（行）、&lt;td&gt;（单元格）、&lt;t ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/09/15/hello-world/" title="Learning 1">Learning 1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-15T08:32:00.000Z" title="发表于 2024-09-15 16:32:00">2024-09-15</time></span></div><div class="content">初学搭建博客12345$ hexo new &quot;My New Post&quot;   #这是创建新博文的命令$ hexo server -d         #这是启动Hexo本地服务器的命令#$ hexo g              #生成博客静态文件$ hexo d              #将博客静态文件部署到GitHub上![](/images/image.jpg)   #这是md文件中引用图片的markdown写法
+
+More info: markdown
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">一安</div><div class="author-info__description">描述</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/02/twcms/" title="twcms">twcms</a><time datetime="2024-11-02T09:44:38.000Z" title="发表于 2024-11-02 17:44:38">2024-11-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/23/TASK-2-upload-labs/" title="TASK 2-upload-labs">TASK 2-upload-labs</a><time datetime="2024-10-23T06:50:34.000Z" title="发表于 2024-10-23 14:50:34">2024-10-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/10/TASK-3-vulhub/" title="TASK 3 vulhub">TASK 3 vulhub</a><time datetime="2024-10-10T10:59:48.000Z" title="发表于 2024-10-10 18:59:48">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/04/TASK-2-php-SER-libs-main/" title="TASK 2-php-SER-libs-main">TASK 2-php-SER-libs-main</a><time datetime="2024-10-04T06:29:00.000Z" title="发表于 2024-10-04 14:29:00">2024-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/24/TASK-1-SQL/" title="TASK 1-SQL">TASK 1-SQL</a><time datetime="2024-09-24T02:19:06.000Z" title="发表于 2024-09-24 10:19:06">2024-09-24</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">十一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-10T02:16:45.487Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 一安</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

